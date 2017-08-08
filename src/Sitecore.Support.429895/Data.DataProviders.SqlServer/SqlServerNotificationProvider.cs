@@ -30,7 +30,9 @@
           AND (({0}Language{1}={2}invariantLanguage{3}) OR ({0}Language{1}={2}language{3}) OR ({0}Language{1} IS NULL))
           AND (({0}Version{1}={2}latestVersion{3}) OR ({0}Version{1}={2}version{3}))
         ORDER BY 
-          {0}Created{1}";
+          {0}Created{1}
+        OPTION 
+          (MAXDOP 8)";
 
       var parameters = new object[]
       {
@@ -58,7 +60,9 @@
         WHERE 
           {0}Processed{1}={2}processed{3} AND {0}InstanceType{1}={2}instanceType{3}              
         ORDER BY 
-          {0}Created{1}";
+          {0}Created{1}
+        OPTION 
+          (MAXDOP 8)";
 
       var parameters = new object[]
       {
@@ -78,7 +82,9 @@
           {0}Notifications{1} 
           WITH (NOLOCK) 
         ORDER BY 
-          {0}Created{1}";
+          {0}Created{1}
+        OPTION 
+          (MAXDOP 8)";
 
       var parameters = new object[] { };
 
